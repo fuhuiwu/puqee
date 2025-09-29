@@ -2,6 +2,10 @@
 
 一个通用智能体框架，基于低代码开发、插件化架构和增强RAG技术构建。
 
+## 🌐 官方网站
+
+访问我们的官方网站获取更多信息：[https://www.puqee.com](https://www.puqee.com)
+
 ## 🚀 新功能: ChatBot智能体
 
 Puqee现在内置了一个功能完整的ChatBot智能体，支持命令行和Web界面两种交互方式！
@@ -230,5 +234,6 @@ TODO: 添加详细的开发文档和示例
 
 ## 联系方式
 
+- 官方网站: [https://www.puqee.com](https://www.puqee.com)
 - GitHub: [fuhuiwu](https://github.com/fuhuiwu)
 - 项目地址: [puqee](https://github.com/fuhuiwu/puqee)
