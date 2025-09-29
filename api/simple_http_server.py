@@ -145,14 +145,17 @@ class SimpleHTTPHandler(BaseHTTPRequestHandler):
         try:
             # 获取项目根目录
             current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            chat_html_path = os.path.join(current_dir, 'web', 'templates', 'chat.html')
+            chat_html_path = os.path.join(current_dir, 'web', 'chat', 'templates', 'chat.html')
+            
+            # 调试信息
+            error_msg = f"Chat page not found at {chat_html_path}. Current dir: {current_dir}"
             
             if os.path.exists(chat_html_path):
                 with open(chat_html_path, 'r', encoding='utf-8') as f:
                     content = f.read()
                 self._send_html_response(content)
             else:
-                self._send_error(404, "Chat page not found")
+                self._send_error(404, error_msg)
         except Exception as e:
             self._send_error(500, f"Error serving chat page: {str(e)}")
 
@@ -164,10 +167,10 @@ class SimpleHTTPHandler(BaseHTTPRequestHandler):
             
             # 获取项目根目录
             current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            full_path = os.path.join(current_dir, 'web', 'static', file_path)
+            full_path = os.path.join(current_dir, 'web', 'chat', 'static', file_path)
             
             # 安全检查：确保路径在static目录内
-            static_dir = os.path.join(current_dir, 'web', 'static')
+            static_dir = os.path.join(current_dir, 'web', 'chat', 'static')
             if not os.path.abspath(full_path).startswith(os.path.abspath(static_dir)):
                 self._send_error(403, "Forbidden")
                 return

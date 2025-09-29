@@ -33,7 +33,7 @@ class WebTestHandler(BaseHTTPRequestHandler):
             <body>
                 <h1>Puqee ChatBot 测试服务器</h1>
                 <p><a href="/chat">点击进入聊天界面</a></p>
-                <p>测试服务器运行中 - " + datetime.now().isoformat() + "</p>
+                <p>测试服务器运行中 - """ + datetime.now().isoformat() + """</p>
             </body>
             </html>
             """)
@@ -112,7 +112,7 @@ class WebTestHandler(BaseHTTPRequestHandler):
         try:
             # 获取项目根目录
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            chat_html_path = os.path.join(current_dir, 'web', 'templates', 'chat.html')
+            chat_html_path = os.path.join(current_dir, 'web', 'chat', 'templates', 'chat.html')
             
             if os.path.exists(chat_html_path):
                 with open(chat_html_path, 'r', encoding='utf-8') as f:
@@ -131,10 +131,10 @@ class WebTestHandler(BaseHTTPRequestHandler):
             
             # 获取项目根目录
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            full_path = os.path.join(current_dir, 'web', 'static', file_path)
+            full_path = os.path.join(current_dir, 'web', 'chat', 'static', file_path)
             
             # 安全检查：确保路径在static目录内
-            static_dir = os.path.join(current_dir, 'web', 'static')
+            static_dir = os.path.join(current_dir, 'web', 'chat', 'static')
             if not os.path.abspath(full_path).startswith(os.path.abspath(static_dir)):
                 self._send_error(403, "Forbidden")
                 return
