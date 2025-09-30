@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puqee - 通用智能体框架</title>
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -41,6 +42,9 @@
             font-size: 24px;
             font-weight: bold;
             color: white;
+        }
+        .logo .brand-text {
+            color: #356c69;
         }
         nav ul {
             display: flex;
@@ -160,7 +164,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">Puqee</div>
+                        <div class="logo"><img src="logo.svg" alt="Puqee Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;"><span style="font-weight: bold;">Puqee</span></div>
             <ul>
                 <li><a href="https://www.puqee.com" target="_blank">官网</a></li>
                 <li><a href="#features">特性</a></li>
@@ -279,6 +283,16 @@ python main.py --debug
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // 滚动时改变logo文字颜色
+        window.addEventListener('scroll', function() {
+            const logoText = document.querySelector('.logo span');
+            if (window.scrollY > 0) {
+                logoText.style.color = '#356c69';
+            } else {
+                logoText.style.color = 'white';
+            }
         });
     </script>
 </body>
